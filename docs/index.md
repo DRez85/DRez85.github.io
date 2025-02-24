@@ -1,23 +1,22 @@
----
-title: Welcome
-tags:
-- tag1
-- tag2
----
 
-## Hello, my name is Dan 
+EGR 314 - Embedded Systems Design Project II
 
-- List item 1
-- List item 2
+## STEM Weather Station Project
+Team Number: 303
 
-name | discription
------|------------
-dan  | the man
+Team Members: Cade Clonts, Tyler Dean, Jahmel Garduno, Daniel Resnick
 
-### Here is a sub heading 
+Preparation Date: Febuary 21, 2025
 
-1. Step 1
-1. Step 2
-1. Step 3
-1. Step 4
-1. Step 5
+Semester and Year: Spring 2025
+
+University: Arizona State University
+
+Professor: K. Nichols
+
+## Team Role
+
+My role in the team will be to develop the fan system for the weather station. This wil act as a simulation of a cooling system that will teach K-12 students how 
+weather forcasters are able to take data from sensors to display accurate readings to predict the weather. I will be using the PIC microcontroller to controll a fan through a h bridge and op amp. 
+
+
