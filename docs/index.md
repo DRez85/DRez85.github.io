@@ -1,6 +1,8 @@
 
 EGR 314 - Embedded Systems Design Project II
 
+![image](https://github.com/user-attachments/assets/86a3438b-5709-4859-a298-9e35f6fd401c)
+
 ## STEM Weather Station Project
 Team Number: 303
 
