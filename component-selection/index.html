@@ -90,6 +90,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#microcontroller" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -554,6 +559,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller" class="md-nav__link">
+    Microcontroller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voltage-regulator" class="md-nav__link">
+    Voltage Regulator
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -577,101 +604,68 @@
 
   <h1>Component Selection</h1>
 
-<p><em>Table 1</em></p>
-<p><strong>Microcontroller</strong></p>
+<h3 id="microcontroller"><strong>Microcontroller</strong></h3>
 <table>
 <thead>
 <tr>
-<th><strong>Solution</strong></th>
-<th><strong>Pros</strong></th>
-<th><strong>Cons</strong></th>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a class="glightbox" href="MFG_Attachment-2-ESP32-S3-WROOM-1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="MFG_Attachment-2-ESP32-S3-WROOM-1.jpg" width="150"></a><br>Option 1.<br> ESP32-S3-WROOM-1-N4<br>$2.95/each<br><a href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N4/16162639?s=N4IgjCBcpgbFoDGUBmBDANgZwKYBoQB7KAbRACY4BWWAFhAF0CAHAFyhAGVWAnASwB2AcxABfAlXrQQySOmz4ipELADsVVQE4AHIxbtIXXoJHiVmhDNSZcBYpDK0ADJoDMbvSDYdu-YWIIwd0tZeVslB3ByTU1yck9vQ18TAPBaeOlQm0V7MlVyV21XeiYvAyM-UwJyKgykawU7ZUpyWEoE8uT-M3JVeEyG8NyKJ3JtdtLEipSzVyd%2B%2Brlspsig7U0NDp9jboJaWl0BpcaIsjAnJ1c%2BraSdqpANQ8WwnObtNRob6d2Qcaln5anFTqLTwSadO6pcYLKzHIbKD5aKhfLr3TSwZFHF4rMiFKjzJwoyFmHT-WHYoGSbRUTQQcHbSqpMDacYhQavVZExlmZlFNlwjm48hOVTaEr6BkzQIsslZE7DLTaXlcqXgHQWLGA4aEhg9WCaVT8ikK-G0Wkqn4AWggmvlyjAmicJTMltl7JxIE0zhqjBdmIBds51RA1Vorl9BEthtt8MisDmsFg2jwDqdvtEoiAA">link to product</a></td>
-<td>* Versatile <br>* Wifi and Bluetooth<br>* Meets surface mount constraint of project</td>
-<td>* No Dedicated SRAM</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/8c6c63fb-29f0-4a42-845b-77c537fc106f" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="esp321N4" src="https://github.com/user-attachments/assets/8c6c63fb-29f0-4a42-845b-77c537fc106f" /></a> Solution 1<br> ESP32-S3-WROOM-1-N4<br> Cost: $2.95 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N4/16162639">Link to Product</a><br></td>
+<td>- Faster Processing for complex tasks<br>- Built in Wifi and Bluetooth 5 Connectivity<br>- Larger memory storage</td>
+<td>- Higher Power Consumption<br>- Complex Peripheral Management<br>- Much more complex memory management</td>
 </tr>
 <tr>
-<td><a class="glightbox" href="MFG_Attachment-2-ESP32-S3-WROOM-1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="MFG_Attachment-2-ESP32-S3-WROOM-1.jpg" width="150"></a><br>* Option 2. <br>* ESP32-S3-WROOM-1-N16R8 <br>* $3.90/each <br>* <a href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N16R8/16162642">Link to product</a></td>
-<td>* 16MB of memory <br>* Wifi and Bluetooth</td>
-<td>* More expensive <br>* Slow shipping speed</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/1927a90f-8fa8-43db-8400-3ace6e7163e5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PIC27" src="https://github.com/user-attachments/assets/1927a90f-8fa8-43db-8400-3ace6e7163e5" /></a> Solution 2<br> PIC18F27Q10-I/SO<br> Cost: $1.31 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/microchip-technology/PIC18F27Q10-I-SO/10064343">Link to Product</a><br></td>
+<td>- Simple and easy architecture to program<br>- Multiple low power modes; overall low energy consumption<br>- More Reliable for wired standalone subsystems</td>
+<td>- No built in wireless capabilities<br>- Fewer advanced I/O options<br>- Limited memory for advanced applications</td>
 </tr>
 <tr>
-<td><a class="glightbox" href="MFG_ESP32-WROOM-32E-(4MB-HIGH-TEMP).jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="MFG_ESP32-WROOM-32E-(4MB-HIGH-TEMP).jpg" width="150"></a><br>* Option 3. <br>* ESP32-WROOM-32E-H4 <br>* $2.68/each <br>* <a href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-WROOM-32E-H4/12696413">Link to product</a></td>
-<td>* Wider operating temperature range <br>* Wifi and Bluetooth</td>
-<td>* Low Inventory <br>* Slow shipping speed</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/f7c9fc8d-b4b8-443e-97ce-a1c4e1f9f043" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alternatepic" src="https://github.com/user-attachments/assets/f7c9fc8d-b4b8-443e-97ce-a1c4e1f9f043" /></a> Solution 3<br> PIC18F47Q10T-I/MP<br> Cost: $1.74 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/microchip-technology/PIC18F47Q10T-I-MP/10187787?s=N4IgTCBcDaIAoEkDCBGAHAMQCwHYCKKADACoC0CA9ALJwgC6AvkA">Link to Product</a><br></td>
+<td>- Faster Processing speed<br>- Adjustable GPIO pins<br>- 2 UART and 2 ICSP Pins</td>
+<td>- Slower processing speeds<br>- No built in wifi or bluetooth modules<br>- Requires complex PCB design for high frequency operation</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: ESP32-S3-WROOM-1-N4.</p>
-<p><strong>Rationale:</strong> The ESP32-S3-WROOM-1-N4 is the optimal choice because it provides a balance of features, cost, and compatibility with the project requirements. Its integrated Wi-Fi and Bluetooth v5.0 capabilities, surface mount design, and sufficient memory make it ideal for bidirectional internet communication. While it has some limitations, such as limited RAM and a moderate operating temperature range, these are not critical for the project.</p>
-<p><em>Table 2</em></p>
-<p><strong>USB Connector</strong></p>
+<p><strong>Choice:</strong><br />
+Solution 2 - PIC18F27Q10-I/SO</p>
+<p><strong>Rationale:</strong><br />
+The PIC18F27Q10-I/SO offers an excellent balance of versatility, functionality, and efficient use of board space. With a rich array of bidirectional I/O pins that support both digital and analog functions, along with configurable peripherals such as timers, communication interfaces, and the Peripheral Pin Select (PPS) feature, this module provides the flexibility needed to handle complex tasks and interface with various sensors and actuators. Additionally, the integration of low-power features and dedicated programming interfaces makes it ideal for projects requiring robust performance in energy-sensitive environments. This combination of features in a compact package ensures that the design is both scalable and cost-effective, meeting the project's performance and connectivity requirements without unnecessary complexity.</p>
+<h3 id="voltage-regulator"><strong>Voltage Regulator</strong></h3>
 <table>
 <thead>
 <tr>
-<th><strong>Solution</strong></th>
-<th><strong>Pros</strong></th>
-<th><strong>Cons</strong></th>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a class="glightbox" href="10118193-0001LF.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="10118193-0001LF.jpg" width="150"></a><br>Option 1.<br> E10118193-0001LF<br>$0.41/each<br><a href="https://www.digikey.com/en/products/detail/amphenol-cs-fci/10118193-0001LF/2785388">link to product</a></td>
-<td>* Right Angle Mounting <br>*Through hole and SMD Mounting <br>* Shielded</td>
-<td>* Through hole and SMD complexity</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/f546c850-1c2c-41f9-b496-1d7d340e9a19" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LM2575" src="https://github.com/user-attachments/assets/f546c850-1c2c-41f9-b496-1d7d340e9a19" /></a> Solution 1<br> LM2575WU<br> Cost: $3.95 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/microchip-technology/LM2575WU/1027667">Link to Product</a><br></td>
+<td>- High Efficiency<br>- High heat protection<br>- Prior use in class with through hole version</td>
+<td>- Switch frequency make noise<br>- Limited Stock</td>
 </tr>
 <tr>
-<td><a class="glightbox" href="10118192-0002LF.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="10118192-0002LF.jpg" width="150"></a><br>* Option 2. <br>* 10118192-0002LF <br>* $0.38/each <br>* <a href="https://www.digikey.com/en/products/detail/amphenol-cs-fci/10118192-0002LF/6817756">Link to product</a></td>
-<td>* Right Angle Mounting <br>* Shielded</td>
-<td>* More expensive <br>* 7 Week Lead Time</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/f8bbd664-95ab-4fe6-80ed-3f45c3ac1747" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="VoltageMax5 5" src="https://github.com/user-attachments/assets/f8bbd664-95ab-4fe6-80ed-3f45c3ac1747" /></a> Solution 2<br> TPS75133QPWPR<br> Cost: $4.12 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/texas-instruments/TPS75133QPWPR/1673042">Link to Product</a><br></td>
+<td>- High Efficiency<br>- High Temperature Range</td>
+<td>- Switch frequency make noise<br>- Low dropout Voltage<br>- 5.5 V Max Input</td>
 </tr>
 <tr>
-<td><a class="glightbox" href="MFG_USB3140-30-0170-1-C.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="MFG_USB3140-30-0170-1-C.jpg" width="150"></a><br>* Option 3. <br>* USB3140-30-0170-1-C <br>* $0.77/each <br>* <a href="https://www.digikey.com/en/products/detail/gct/USB3140-30-0170-1-C/9859645">Link to product</a></td>
-<td>* Wider operating temperature range <br>* Shielded</td>
-<td>* SMD Mounting only <br>* Vertical Mounting</td>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/7f30f434-51ad-4147-a66e-904c9023636f" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Voltagesolder" src="https://github.com/user-attachments/assets/7f30f434-51ad-4147-a66e-904c9023636f" /></a> Solution 3<br> RP509Z001D-E2-F<br> Cost: $0.70 Per Unit<br> <a href="https://www.digikey.com/en/products/detail/nisshinbo-micro-devices-inc/RP509Z001D-E2-F/10217681">Link to Product</a><br></td>
+<td>- High Efficiency<br>- Very Inexpensive</td>
+<td>- Very Difficult Soldering<br>- Low max Temp<br>- 6.5 V Max Input</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: 10118193-0001LF.</p>
-<p><strong>Rationale:</strong> The 10118193-0001LF is the optimal choice because it provides a balance of high current handling, robust shielding, and mounting flexibility. Its 10,000 mating cycles and wide operating temperature range ensure durability and reliability</p>
-<p><em>Table 3</em></p>
-<p><strong>Linear Voltage Regulator</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>Solution</strong></th>
-<th><strong>Pros</strong></th>
-<th><strong>Cons</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="glightbox" href="DPak-TO-263-5-Leads.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="DPak-TO-263-5-Leads.jpg" width="150"></a><br>Option 1.<br> NCP5662DS33R4G<br>$1.32/each<br><a href="https://www.digikey.com/en/products/detail/onsemi/NCP5662DS33R4G/1483762">link to product</a></td>
-<td><br>* Over-Current Protection <br>* Enable Pin</td>
-<td>* Obsolete Status <br>* Bulk Quantity Ordering</td>
-</tr>
-<tr>
-<td><a class="glightbox" href="296~4073225-4~PWP~20.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="296~4073225-4~PWP~20.jpg" width="150"></a><br>* Option 2. <br>* TPS75133QPWPR <br>* $4.12/each <br>* <a href="https://www.digikey.com/en/products/detail/texas-instruments/TPS75133QPWPR/1673042">Link to product</a></td>
-<td>* Wide Temp Range <br>* Advance Features (Reset Pin, etc.)</td>
-<td>* Low Dropout Voltage <br>* Input Voltage 5.5</td>
-</tr>
-<tr>
-<td><a class="glightbox" href="488~506AX-01~MN~6.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="488~506AX-01~MN~6.jpg" width="150"></a><br>* Option 3. <br>* NCP565MN33T2G <br>* $0.89/each <br>* <a href="https://www.digikey.com/en/products/detail/onsemi/NCP565MN33T2G/1792550">Link to product</a></td>
-<td>* Compact Design <br>* Wide Temperature Range</td>
-<td>* Difficult SMD mounting <br>* Obsolete Status</td>
-</tr>
-<tr>
-<td><a class="glightbox" href="296~4200577-3~KTT~3.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="296~4200577-3~KTT~3.jpg" width="150"></a><br>* Option 4. <br>* LM1085ISX-3.3/NOPB <br>* $1.84/each <br>* <a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1085ISX-3-3-NOPB/366710">Link to product</a></td>
-<td>* Larger Package Size <br>* Wide Voltage Input Range</td>
-<td>* High Dropout Voltage</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Choice:</strong> Option 4: LM1085ISX-3.3/NOPB.</p>
-<p><strong>Rationale:</strong> The LM1085ISX-3.3/NOPB is the optimal choice because it provides a balance of wide input voltage range, high current output, and robust protection features. Its wide operating temperature range ensures stable and reliable operation in various environments. Although it has a higher dropout voltage and quiescent current, these are outweighed by its performance and reliability, making it the best fit for the project.</p>
+<p><strong>Choice:</strong><br />
+Solution 1 - LM2575WU </p>
+<p><strong>Rationale:</strong><br />
+The LM2575WU was chosen as our voltage regulator due to its efficiency, reliability, and ease of integration in our power management system. As a step-down (buck) switching regulator, it efficiently converts higher input voltages, such as 9V, to a stable 3.3V output, ensuring optimal power delivery while minimizing heat dissipation compared to traditional linear regulators. With a wide input voltage range (4V to 40V) and a 1A output current capacity, it provides flexibility for various power sources and load conditions. Its internal frequency compensation, fixed 52kHz switching frequency, and minimal external component requirements simplify circuit design and reduce PCB space. Additionally, the integrated thermal shutdown and current limit protection enhance system safety and durability. Given our prior experience and familiarity with this regulator, its selection ensures a seamless and efficient voltage regulation solution for our project.</p>
 
 
 
