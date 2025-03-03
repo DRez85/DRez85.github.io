@@ -1,7 +1,6 @@
----
-title: Component Selection
----
-  
+# Component Selection
+
+
 ### **Microcontroller**
 
 | Solution | Pros | Cons |
