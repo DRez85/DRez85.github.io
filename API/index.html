@@ -665,6 +665,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fan-control-message-type-2" class="md-nav__link">
+    Fan Control (Message Type 2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -903,6 +910,340 @@
 </tr>
 </tbody>
 </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body>
+
+<details>
+    <summary>Inverted</summary>
+    <table>
+        <tr>
+            <th></th>
+            <th>Byte 1</th>
+            <th>Byte 2</th>
+            <th>Byte 3</th>
+            <th>Byte 4</th>
+            <th>Byte 5</th>
+            <th>Byte 6</th>
+            <th>Byte 7</th>
+            <th>Byte 8</th>
+            <th>Byte 9</th>
+            <th>Byte 10-62</th>
+            <th>Byte 63</th>
+            <th>Byte 64</th>
+        </tr>
+        <tr>
+            <td><strong>Variable Name</strong></td>
+            <td>prefix_1</td>
+            <td>prefix_2</td>
+            <td>source_id</td>
+            <td>destination_id</td>
+            <td>message_type</td>
+            <td>temp_id</td>
+            <td>status</td>
+            <td>temp_data_integer</td>
+            <td>temp_data_fraction</td>
+            <td>Unused</td>
+            <td>suffix_1</td>
+            <td>suffix_2</td>
+        </tr>
+        <tr>
+            <td><strong>Variable Type</strong></td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+        </tr>
+        <tr>
+            <td><strong>Min Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>3</td>
+            <td>1</td>
+            <td>0x10</td>
+            <td>1</td>
+            <td>0</td>
+            <td>-40</td>
+            <td>0</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+        <tr>
+            <td><strong>Max Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>3</td>
+            <td>88</td>
+            <td>0x10</td>
+            <td>255</td>
+            <td>1</td>
+            <td>155</td>
+            <td>99</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+        <tr>
+            <td><strong>Example Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>0x03</td>
+            <td>0x58</td>
+            <td>0x10</td>
+            <td>0x01</td>
+            <td>0x01</td>
+            <td>25</td>
+            <td>50</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+    </table>
+
+</details>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
+
+<h3 id="fan-control-message-type-2">Fan Control (Message Type 2)</h3>
+<p>The Fan Control table defines the structure of messages for controlling fan speed. Each byte in the message is mapped to a specific variable, with details about its type, range, and example values.</p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Variable Type</th>
+<th>Min Value</th>
+<th>Max Value</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>prefix_1</td>
+<td>uint8_t</td>
+<td>0x41</td>
+<td>0x41</td>
+<td>0x41</td>
+</tr>
+<tr>
+<td>2</td>
+<td>prefix_2</td>
+<td>uint8_t</td>
+<td>0x5a</td>
+<td>0x5a</td>
+<td>0x5a</td>
+</tr>
+<tr>
+<td>3</td>
+<td>source_id</td>
+<td>uint8_t</td>
+<td>1</td>
+<td>2</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>destination_id</td>
+<td>uint8_t</td>
+<td>4</td>
+<td>4</td>
+<td>0x04</td>
+</tr>
+<tr>
+<td>5</td>
+<td>message_type</td>
+<td>uint8_t</td>
+<td>0x20</td>
+<td>0x20</td>
+<td>0x20</td>
+</tr>
+<tr>
+<td>6</td>
+<td>fan_id</td>
+<td>uint8_t</td>
+<td>1</td>
+<td>255</td>
+<td>0x02</td>
+</tr>
+<tr>
+<td>7</td>
+<td>status</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>1</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Fan Speed</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>254</td>
+<td>25</td>
+</tr>
+<tr>
+<td>9-62</td>
+<td>Unused</td>
+<td>uint8_t</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>63</td>
+<td>suffix_1</td>
+<td>uint8_t</td>
+<td>0x59</td>
+<td>0x59</td>
+<td>0x59</td>
+</tr>
+<tr>
+<td>64</td>
+<td>suffix_2</td>
+<td>uint8_t</td>
+<td>0x42</td>
+<td>0x42</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body>
+
+<details>
+    <summary>Inverted</summary>
+    <table>
+        <tr>
+            <th></th>
+            <th>Byte 1</th>
+            <th>Byte 2</th>
+            <th>Byte 3</th>
+            <th>Byte 4</th>
+            <th>Byte 5</th>
+            <th>Byte 6</th>
+            <th>Byte 7</th>
+            <th>Byte 8</th>
+            <th>Byte 9-62</th>
+            <th>Byte 63</th>
+            <th>Byte 64</th>
+        </tr>
+        <tr>
+            <td><strong>Variable Name</strong></td>
+            <td>prefix_1</td>
+            <td>prefix_2</td>
+            <td>source_id</td>
+            <td>destination_id</td>
+            <td>message_type</td>
+            <td>fan_id</td>
+            <td>status</td>
+            <td>Fan Speed</td>
+            <td>Unused</td>
+            <td>suffix_1</td>
+            <td>suffix_2</td>
+        </tr>
+        <tr>
+            <td><strong>Variable Type</strong></td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+            <td>uint8_t</td>
+        </tr>
+        <tr>
+            <td><strong>Min Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>1</td>
+            <td>4</td>
+            <td>0x20</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+        <tr>
+            <td><strong>Max Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>2</td>
+            <td>4</td>
+            <td>0x20</td>
+            <td>255</td>
+            <td>1</td>
+            <td>254</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+        <tr>
+            <td><strong>Example Value</strong></td>
+            <td>0x41</td>
+            <td>0x5a</td>
+            <td>0x01</td>
+            <td>0x04</td>
+            <td>0x20</td>
+            <td>0x02</td>
+            <td>0x01</td>
+            <td>25</td>
+            <td>0x00</td>
+            <td>0x59</td>
+            <td>0x42</td>
+        </tr>
+    </table>
+</details>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
 
 
 
@@ -1007,7 +1348,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  </body>
 </html>
