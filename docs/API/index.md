@@ -67,8 +67,8 @@ The Temperature Sensor table defines the structure of messages for temperature d
 <body>
 
 <details>
-    <summary>Inverted</summary>
-    <table>
+    <summary>Inverted Summary</summary>
+    <table border="1">
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -108,7 +108,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
-            <td>uint8_t</td>
+            <td>int8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
@@ -117,7 +117,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>3</td>
             <td>1</td>
             <td>0x10</td>
@@ -132,7 +132,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>3</td>
             <td>88</td>
             <td>0x10</td>
@@ -147,7 +147,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>0x03</td>
             <td>0x58</td>
             <td>0x10</td>
@@ -160,11 +160,11 @@ The Temperature Sensor table defines the structure of messages for temperature d
             <td>0x42</td>
         </tr>
     </table>
-
 </details>
 
 </body>
 </html>
+
 
 ### Fan Control (Message Type 2)
 
@@ -176,8 +176,8 @@ The Fan Control table defines the structure of messages for controlling fan spee
 | 2     | prefix_2         | uint8_t      | 0x5a      | 0x5a      | 0x5a         |
 | 3     | source_id        | uint8_t      | 1         | 2         | 0x01         |
 | 4     | destination_id   | uint8_t      | 4         | 4         | 0x04         |
-| 5     | message_type     | uint8_t      | 0x20      | 0x20      | 0x20         |
-| 6     | fan_id          | uint8_t      | 1         | 255       | 0x02         |
+| 5     | message_type     | uint8_t      | 0x02      | 0x02     | 0x02         |
+| 6     | fan_id          | uint8_t      | 1         |255      | 0x02         |
 | 7     | status          | uint8_t      | 0         | 1         | 0x01         |
 | 8     | Fan Speed       | uint8_t      | 0         | 254       | 25           |
 | 9-62  | Unused          | uint8_t      | 0x00      | 0x00      | 0x00         |
@@ -193,8 +193,8 @@ The Fan Control table defines the structure of messages for controlling fan spee
 <body>
 
 <details>
-    <summary>Inverted</summary>
-    <table>
+    <summary>Inverted Summary</summary>
+    <table border="1">
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -218,7 +218,7 @@ The Fan Control table defines the structure of messages for controlling fan spee
             <td>message_type</td>
             <td>fan_id</td>
             <td>status</td>
-            <td>Fan Speed</td>
+            <td>fan_speed</td>
             <td>Unused</td>
             <td>suffix_1</td>
             <td>suffix_2</td>
@@ -240,10 +240,10 @@ The Fan Control table defines the structure of messages for controlling fan spee
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>1</td>
             <td>4</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>1</td>
             <td>0</td>
             <td>0</td>
@@ -254,10 +254,10 @@ The Fan Control table defines the structure of messages for controlling fan spee
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>2</td>
             <td>4</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>255</td>
             <td>1</td>
             <td>254</td>
@@ -268,10 +268,10 @@ The Fan Control table defines the structure of messages for controlling fan spee
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>0x01</td>
             <td>0x04</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>0x02</td>
             <td>0x01</td>
             <td>25</td>
@@ -284,4 +284,3 @@ The Fan Control table defines the structure of messages for controlling fan spee
 
 </body>
 </html>
-
