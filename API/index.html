@@ -928,8 +928,8 @@
 <body>
 
 <details>
-    <summary>Inverted</summary>
-    <table>
+    <summary>Inverted Summary</summary>
+    <table border="1">
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -969,7 +969,7 @@
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
-            <td>uint8_t</td>
+            <td>int8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
@@ -978,7 +978,7 @@
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>3</td>
             <td>1</td>
             <td>0x10</td>
@@ -993,7 +993,7 @@
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>3</td>
             <td>88</td>
             <td>0x10</td>
@@ -1008,7 +1008,7 @@
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>0x03</td>
             <td>0x58</td>
             <td>0x10</td>
@@ -1021,7 +1021,6 @@
             <td>0x42</td>
         </tr>
     </table>
-
 </details>
 
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
@@ -1079,9 +1078,9 @@ document$.subscribe(() => { lightbox.reload() });
 <td>5</td>
 <td>message_type</td>
 <td>uint8_t</td>
-<td>0x20</td>
-<td>0x20</td>
-<td>0x20</td>
+<td>0x02</td>
+<td>0x02</td>
+<td>0x02</td>
 </tr>
 <tr>
 <td>6</td>
@@ -1151,8 +1150,8 @@ document$.subscribe(() => { lightbox.reload() });
 <body>
 
 <details>
-    <summary>Inverted</summary>
-    <table>
+    <summary>Inverted Summary</summary>
+    <table border="1">
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -1176,7 +1175,7 @@ document$.subscribe(() => { lightbox.reload() });
             <td>message_type</td>
             <td>fan_id</td>
             <td>status</td>
-            <td>Fan Speed</td>
+            <td>fan_speed</td>
             <td>Unused</td>
             <td>suffix_1</td>
             <td>suffix_2</td>
@@ -1198,10 +1197,10 @@ document$.subscribe(() => { lightbox.reload() });
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>1</td>
             <td>4</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>1</td>
             <td>0</td>
             <td>0</td>
@@ -1212,10 +1211,10 @@ document$.subscribe(() => { lightbox.reload() });
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>2</td>
             <td>4</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>255</td>
             <td>1</td>
             <td>254</td>
@@ -1226,10 +1225,10 @@ document$.subscribe(() => { lightbox.reload() });
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5a</td>
+            <td>0x5A</td>
             <td>0x01</td>
             <td>0x04</td>
-            <td>0x20</td>
+            <td>0x02</td>
             <td>0x02</td>
             <td>0x01</td>
             <td>25</td>
