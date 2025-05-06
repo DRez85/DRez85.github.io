@@ -8,5 +8,6 @@ __The schematic below details the acuator subsystem to control a fan through an 
 
 ## __Schematic__
 
-- [Schematic PDF](https://github.com/user-attachments/files/20054130/314_Fan.pdf)
+* *[Schematic PDF](https://github.com/user-attachments/files/20054130/314_Fan.pdf)
+  
 ![Schematic Design](https://github.com/user-attachments/assets/5d4f5499-23a9-4020-ab75-c99b4490d60e)
