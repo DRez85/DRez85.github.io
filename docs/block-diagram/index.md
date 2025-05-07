@@ -8,6 +8,6 @@ This document explains the block diagram and related design decisions for the Mo
 
 ## Changes Made From Feedback
 
-In Regards to feedback from the first verion of the block diagram there were a few things that I changed. I added the correspoding pin that each component was connected to. IN addition, Labels were added for digital, digital parallel and voltage. 
+In regards to feedback from the first verion of the block diagram there were a few things that I changed. I added the correspoding pin that each component was connected to. In addition, Labels were added for digital, digital parallel and voltage. 
 
 ![Motor_Block_Diagram_V2](https://github.com/user-attachments/assets/3ab39ad4-fbec-4805-aaf1-7ccc7b0ebc53)
