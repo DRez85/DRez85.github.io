@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -616,6 +621,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes-made-from-feedback" class="md-nav__link">
+    Changes Made From Feedback
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -638,8 +660,10 @@
   
 
 
-  <h1>Block Diagram</h1>
-
+<h1 id="overview">Overview</h1>
+<p>This document explains the block diagram and related design decisions for the Motor Driver Subsystem used in a daisy-chained UART-based embedded control system. The motor subsystem receives UART messages, decodes them using a PIC18F47Q10 microcontroller, and issues control commands via SPI to the IFX9201SGAUMA1 motor driver. All components and signal lines are clearly labeled with voltage, signal type, and pin counts to support manufacturing and debugging. The design addresses feedback and includes all required system-level elements such as power regulation, bidirectional ICSP, and future scalability.</p>
+<h2 id="changes-made-from-feedback">Changes Made From Feedback</h2>
+<p>In Regards to feedback from the first verion of the block diagram there were a few things that I changed. I added the correspoding pin that each component was connected to. IN addition, Labels were added for digital, digital parallel and voltage. </p>
 <p><a class="glightbox" href="https://github.com/user-attachments/assets/3ab39ad4-fbec-4805-aaf1-7ccc7b0ebc53" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Motor_Block_Diagram_V2" src="https://github.com/user-attachments/assets/3ab39ad4-fbec-4805-aaf1-7ccc7b0ebc53" /></a></p>
 
 
