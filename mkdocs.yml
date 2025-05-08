@@ -84,16 +84,3 @@ extra:
     - icon: fontawesome/regular/file-code
       link: /2023_fall
       name: 2023 Site    
-
-nav:
-  - Home: index.md
-  - Block Diagram:
-      - Overview: block-diagram/index.md
-  - Component Selection:
-      - Overview: component-selection/index.md
-  - Board Design:
-      - Overview: board-design/Index.md
-  - API:
-      - Overview: api/index.md
-  - Resources:
-      - Overview: resources/index.html
