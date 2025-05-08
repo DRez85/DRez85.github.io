@@ -711,6 +711,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#motor-driver" class="md-nav__link">
+    Motor Driver
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -836,9 +843,31 @@ The PIC18F27Q10-I/SO offers an excellent balance of versatility, functionality, 
 </tbody>
 </table>
 <p><strong>Choice:</strong><br />
-Solution 3 - LM1085ISX-3.3/NOPB</p>
+Solution 1 - LM2575WU</p>
 <p><strong>Rationale:</strong><br />
-The LM1085ISX-3.3/NOPB is the optimal choice because it provides a balance of wide input voltage range, high current output, and robust protection features. Its wide operating temperature range ensures stable and reliable operation in various environments. Although it has a higher dropout voltage and quiescent current, these are outweighed by its performance and reliability, making it the best fit for the project.</p>
+The LM2575WU was chosen as our voltage regulator due to its efficiency, reliability, and ease of integration in our power management system. As a step-down (buck) switching regulator, it efficiently converts higher input voltages, such as 9V, to a stable 3.3V output, ensuring optimal power delivery while minimizing heat dissipation compared to traditional linear regulators. With a wide input voltage range (4V to 40V) and a 1A output current capacity, it provides flexibility for various power sources and load conditions. Its internal frequency compensation, fixed 52kHz switching frequency, and minimal external component requirements simplify circuit design and reduce PCB space. Additionally, the integrated thermal shutdown and current limit protection enhance system safety and durability. Given our prior experience and familiarity with this regulator, its selection ensures a seamless and efficient voltage regulation solution for our project.</p>
+<h3 id="motor-driver"><strong>Motor Driver</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" href="https://github.com/user-attachments/assets/e3d613c3-ad3f-4f2f-a713-1b056073b67e" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NCV7708FDWR2G" src="https://github.com/user-attachments/assets/e3d613c3-ad3f-4f2f-a713-1b056073b67e" /></a> Solution 1<br> NCV7708FDWR2G<br>  Cost: $ 4.36 per Unit<br></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237">Link to product</a> <br></td>
+<td>- Readily available<br> - Fully integrated control and power.</td>
+<td>- Expensive <br> - 28 Pins may be difficult to solder.</td>
+</tr>
+</tbody>
+</table>
 
 
 
