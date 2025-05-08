@@ -1,14 +1,31 @@
-site_name: EGR314 Report Template
-site_url: https://embedded-systems-design.github.io/template_report
-repo_url: https://github.com/embedded-systems-design/template_report
+site_name: EGR314 Report- Dan Resnick
+site_url: https://drez85.github.io/
+repo_url: https://github.com/DRez85/DRez85.github.io/
 edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: custom_theme/
+  
   palette:
-    primary: blue
-    accent: indigo
-  font:
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: blue grey
+      accent: indigo
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: teal
+      accent: purple
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+font: 
     text: Roboto
   logo: static/logo.svg
   favicon: static/logo.png
@@ -67,3 +84,16 @@ extra:
     - icon: fontawesome/regular/file-code
       link: /2023_fall
       name: 2023 Site    
+
+nav:
+  - Home: index.md
+  - Block Diagram:
+      - Overview: block-diagram/index.md
+  - Component Selection:
+      - Overview: component-selection/index.md
+  - Board Design:
+      - Overview: board-design/Index.md
+  - API:
+      - Overview: api/index.md
+  - Resources:
+      - Overview: resources/index.html
