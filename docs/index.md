@@ -1,9 +1,6 @@
 
 EGR 314 - Embedded Systems Design Project II
 
-tags:
-- tag1
-- tag2
 ---
 | Front Side | Back Side |
 |------------|-----------|
