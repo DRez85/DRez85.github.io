@@ -1,5 +1,12 @@
 # Component Selection
 
+## **Final Compnents Selected**
+| Component               | Part Number         | Function                                          |
+|-------------------------|---------------------|---------------------------------------------------|
+| Microcontroller         | PIC18F47Q10         | Central control unit for UART, I2C, GPIO handling |
+| H Bridge                | IFX9201SGAUMA1          | Controls Fan direction and speed      |
+| Switching Regulator     | LM2575   | Converts barrel jack input to 3.3V regulated supply |
+| Barrel Jack Connector   | PJ-102A             | Receives 12V power from wall outlet                   |
 
 ### **Microcontroller**
 
