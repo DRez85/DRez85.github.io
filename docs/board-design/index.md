@@ -17,3 +17,9 @@ The schematic below details the acuator subsystem to control a fan through an H 
 ![FanPCBTransTop](https://github.com/user-attachments/assets/3dc77e79-0472-4803-8b3d-0dbb0b942dce)
 
 ![FanPCBTransBot](https://github.com/user-attachments/assets/11007eac-1b1d-4b34-af9e-73a4f7904e08)
+
+## __Bill of Materials__
+
+![BillofMat314_Fan](https://github.com/user-attachments/assets/fd05732e-0214-4ccf-aee2-a2825cdc0269)
+
+- [314_FanBOM.xlsx](https://github.com/user-attachments/files/20094784/314_FanBOM.xlsx)
