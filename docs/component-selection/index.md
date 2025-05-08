@@ -1,6 +1,6 @@
 # Component Selection
 
-## **Final Compnents Selected**
+## **Final Components Selected**
 | Component               | Part Number         | Function                                          |
 |-------------------------|---------------------|---------------------------------------------------|
 | Microcontroller         | PIC18F47Q10         | Central control unit for UART, I2C, GPIO handling |
