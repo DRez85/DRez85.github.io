@@ -6,7 +6,7 @@
 | Microcontroller         | PIC18F47Q10         | Central control unit for UART, I2C, GPIO handling |
 | H Bridge                | IFX9201SGAUMA1          | Controls Fan direction and speed      |
 | Switching Regulator     | LM2575   | Converts barrel jack input to 3.3V regulated supply |
-| Barrel Jack Connector   | PJ-102A             | Receives 12V power from wall outlet                   |
+| Fan  | HA40101V4-1000U-A99       | 12V fan that is controlled by H brigde and microcontroller over SPI|
 
 ### **Microcontroller**
 
@@ -30,8 +30,7 @@ The PIC18F27Q10-I/SO offers an excellent balance of versatility, functionality, 
 |----------|----------|----------|
 | ![LM2575](https://github.com/user-attachments/assets/f546c850-1c2c-41f9-b496-1d7d340e9a19) Solution 1<br> LM2575WU<br> Cost: $3.95 Per Unit<br> [Link to Product](https://www.digikey.com/en/products/detail/microchip-technology/LM2575WU/1027667)<br> | - High Efficiency<br>- High heat protection<br>- Prior use in class with through hole version | - Switch frequency make noise<br>- Limited Stock |
 | ![VoltageMax5 5](https://github.com/user-attachments/assets/f8bbd664-95ab-4fe6-80ed-3f45c3ac1747) Solution 2<br> TPS75133QPWPR<br> Cost: $4.12 Per Unit<br> [Link to Product](https://www.digikey.com/en/products/detail/texas-instruments/TPS75133QPWPR/1673042)<br> | - High Efficiency<br>- High Temperature Range | - Switch frequency make noise<br>- Low dropout Voltage<br>- 5.5 V Max Input |
-| ![LM1085ISX](https://github.com/user-attachments/assets/6600a851-bbd8-4a5b-86d0-18e0372d0d5f) Solution 3<br> LM1085ISX-3.3/NOPB<br> Cost: $1.84 Per Unit<br> [Link to Product](https://www.digikey.com/en/products/detail/nisshinbo-micro-devices-inc/RP509Z001D-E2-F/10217681) <br>| -Larger Package Size<br>
--Wide Voltage Input Range | - High dropout voltage |
+| ![LM1085ISX](https://github.com/user-attachments/assets/6600a851-bbd8-4a5b-86d0-18e0372d0d5f) Solution 3<br> LM1085ISX-3.3/NOPB<br> Cost: $1.84 Per Unit<br> [Link to Product](https://www.digikey.com/en/products/detail/nisshinbo-micro-devices-inc/RP509Z001D-E2-F/10217681)<br> | - Larger Package Size<br> - Wide Voltage Input Range | - High dropout voltage |
 
 **Choice:**  
 Solution 1 - LM2575WU
@@ -43,5 +42,7 @@ The LM2575WU was chosen as our voltage regulator due to its efficiency, reliabil
 
 | Solution | Pros | Cons |
 |----------|----------|----------|
-| ![NCV7708FDWR2G](https://github.com/user-attachments/assets/e3d613c3-ad3f-4f2f-a713-1b056073b67e) Solution 1<br> NCV7708FDWR2G<br>  Cost: $ 4.36 per Unit<br> 
-[Link to product](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237) <br> | - Readily available<br> - Fully integrated control and power.<br> | -Expensive <br> - 28 Pins may be difficult to solder. 
+| ![NCV7708FDWR2G](https://github.com/user-attachments/assets/e3d613c3-ad3f-4f2f-a713-1b056073b67e) Solution 1<br> NCV7708FDWR2G<br>  Cost: $ 4.36 per Unit<br> [Link to Product](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237)<br> | - Readily available<br> - Fully integrated control and power.<br> | -Expensive <br> - 28 Pins may be difficult to solder. 
+| ![IFX9201SGAUMA1](https://github.com/user-attachments/assets/a3cdcdeb-12d7-4e11-9d38-53d74f1c8f19) Solution 2<br> IFX9201SGAUMA1<br> Cost $ 3.68 per unit<br> [Link to Product](https://www.digikey.com/en/products/detail/infineon-technologies/ifx9201sgauma1/5415542)<br> | - Familiarity used in lab in class.<br> - Uses SPI communication<br> | - Difficult to program
+ 
+
