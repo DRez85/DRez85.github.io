@@ -631,6 +631,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#message-type-matrix" class="md-nav__link">
+    Message Type Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#message-id" class="md-nav__link">
     Message ID
   </a>
@@ -702,6 +709,45 @@
 
 <h1 id="summary">Summary</h1>
 <p>This API documentation provides details about the message structure, status codes, and message types used in the system. It includes tables for Message ID, Status, Message Types, Temperature Sensor (Message Type 1), and Fan Control (Message Type 2).</p>
+<h2 id="message-type-matrix">Message Type Matrix</h2>
+<ul>
+<li>S = Sending Message</li>
+<li>R = Receiving Message</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Message Type</th>
+<th>Message ID</th>
+<th>Cade<br>Role: MQTT<br>ID: 0x01</th>
+<th>Dan<br>Role: Motor<br>ID: 0x03</th>
+<th>Jahmel<br>Role: HMI<br>ID: 0x02</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sensor value</td>
+<td>0x10</td>
+<td>S<br>(Temperature Value in °C)</td>
+<td>R<br>(motor turns on to cool system)</td>
+<td>R<br>(Debug LEDs on/off within value ranges)</td>
+</tr>
+<tr>
+<td>Set Motor Speed</td>
+<td>0x20</td>
+<td>S<br>(Publish 1, 2, or 3)</td>
+<td>R<br>(Set 1 = Low, 2 = Medium, 3 = High)</td>
+<td>S<br>(toggle debug button press 1, 2, 3)</td>
+</tr>
+<tr>
+<td>Motor Speed Status/Speed</td>
+<td>0x20</td>
+<td>R<br>(Upload 1, 2, 3)</td>
+<td>S<br>(Broadcast status/speed)</td>
+<td>R<br>(Debug LED blinks to recognize message)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="message-id">Message ID</h2>
 <p>The Message ID table defines the unique identifiers for system members and their associated addresses. Each member is assigned a specific ID and address for communication within the system.</p>
 <table>
@@ -727,16 +773,10 @@
 <td>0x02</td>
 </tr>
 <tr>
-<td>Tyler</td>
-<td>Temp Sensor</td>
-<td>3</td>
-<td>0x03</td>
-</tr>
-<tr>
 <td>Dan</td>
 <td>Fan Control</td>
-<td>4</td>
-<td>0x04</td>
+<td>3</td>
+<td>0x03</td>
 </tr>
 <tr>
 <td>Broadcast</td>
@@ -773,31 +813,23 @@
 <tr>
 <th>Category</th>
 <th>Status/Code</th>
+<th>Address</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Temp Data</td>
-<td>-40 to 155</td>
+<td>0 to 255</td>
+<td>0x10</td>
 </tr>
 <tr>
 <td>Fan Control</td>
-<td>0-125</td>
-</tr>
-<tr>
-<td>System Status</td>
-<td>Normal (0x00), Error (0x01)</td>
-</tr>
-<tr>
-<td>System Initialize</td>
-<td>Pending (0x00), Complete (0x01)</td>
-</tr>
-<tr>
-<td>Error</td>
-<td>Error Code</td>
+<td>0 to 3</td>
+<td>0x20</td>
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="temperature-sensor-message-type-1">Temperature Sensor (Message Type 1)</h3>
 <p>The Temperature Sensor table defines the structure of messages for temperature data. Each byte in the message is mapped to a specific variable, with details about its type, range, and example values.</p>
 <table>
@@ -832,7 +864,7 @@
 <td>3</td>
 <td>source_id</td>
 <td>uint8_t</td>
-<td>3</td>
+<td>1</td>
 <td>3</td>
 <td>0x03</td>
 </tr>
@@ -841,23 +873,23 @@
 <td>destination_id</td>
 <td>uint8_t</td>
 <td>1</td>
-<td>88</td>
-<td>0x58</td>
+<td>3 &amp; 88</td>
+<td>0x02</td>
 </tr>
 <tr>
 <td>5</td>
 <td>message_type</td>
 <td>uint8_t</td>
 <td>0x10</td>
-<td>0x10</td>
+<td>0x20</td>
 <td>0x10</td>
 </tr>
 <tr>
 <td>6</td>
 <td>temp_id</td>
 <td>uint8_t</td>
+<td>0</td>
 <td>1</td>
-<td>255</td>
 <td>0x01</td>
 </tr>
 <tr>
@@ -872,8 +904,8 @@
 <td>8</td>
 <td>temp_data_integer</td>
 <td>uint8_t</td>
-<td>-40</td>
-<td>155</td>
+<td>0</td>
+<td>255</td>
 <td>25</td>
 </tr>
 <tr>
@@ -928,8 +960,8 @@
 <body>
 
 <details>
-    <summary>Inverted Summary</summary>
-    <table border="1">
+    <summary>Inverted</summary>
+    <table>
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -969,7 +1001,7 @@
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
-            <td>int8_t</td>
+            <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
@@ -978,13 +1010,13 @@
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
-            <td>3</td>
+            <td>0x5a</td>
+            <td>1</td>
             <td>1</td>
             <td>0x10</td>
-            <td>1</td>
             <td>0</td>
-            <td>-40</td>
+            <td>0</td>
+            <td>0</td>
             <td>0</td>
             <td>0x00</td>
             <td>0x59</td>
@@ -993,13 +1025,13 @@
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>3</td>
-            <td>88</td>
+            <td>3 % 88</td>
             <td>0x10</td>
-            <td>255</td>
             <td>1</td>
-            <td>155</td>
+            <td>1</td>
+            <td>255</td>
             <td>99</td>
             <td>0x00</td>
             <td>0x59</td>
@@ -1008,7 +1040,7 @@
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>0x03</td>
             <td>0x58</td>
             <td>0x10</td>
@@ -1021,6 +1053,7 @@
             <td>0x42</td>
         </tr>
     </table>
+
 </details>
 
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
@@ -1028,6 +1061,7 @@ document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>
 
+<hr />
 <h3 id="fan-control-message-type-2">Fan Control (Message Type 2)</h3>
 <p>The Fan Control table defines the structure of messages for controlling fan speed. Each byte in the message is mapped to a specific variable, with details about its type, range, and example values.</p>
 <table>
@@ -1063,31 +1097,31 @@ document$.subscribe(() => { lightbox.reload() });
 <td>source_id</td>
 <td>uint8_t</td>
 <td>1</td>
-<td>2</td>
+<td>3</td>
 <td>0x01</td>
 </tr>
 <tr>
 <td>4</td>
 <td>destination_id</td>
 <td>uint8_t</td>
-<td>4</td>
-<td>4</td>
+<td>1</td>
+<td>3 &amp; 58</td>
 <td>0x04</td>
 </tr>
 <tr>
 <td>5</td>
 <td>message_type</td>
 <td>uint8_t</td>
-<td>0x02</td>
-<td>0x02</td>
-<td>0x02</td>
+<td>0x20</td>
+<td>0x20</td>
+<td>0x20</td>
 </tr>
 <tr>
 <td>6</td>
 <td>fan_id</td>
 <td>uint8_t</td>
+<td>0</td>
 <td>1</td>
-<td>255</td>
 <td>0x02</td>
 </tr>
 <tr>
@@ -1100,14 +1134,22 @@ document$.subscribe(() => { lightbox.reload() });
 </tr>
 <tr>
 <td>8</td>
-<td>Fan Speed</td>
+<td>fan_speed_data</td>
 <td>uint8_t</td>
 <td>0</td>
-<td>254</td>
-<td>25</td>
+<td>3</td>
+<td>0x02</td>
 </tr>
 <tr>
-<td>9-62</td>
+<td>9</td>
+<td>fan_speed_set</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>3</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>10-62</td>
 <td>Unused</td>
 <td>uint8_t</td>
 <td>0x00</td>
@@ -1150,8 +1192,8 @@ document$.subscribe(() => { lightbox.reload() });
 <body>
 
 <details>
-    <summary>Inverted Summary</summary>
-    <table border="1">
+    <summary>Inverted</summary>
+    <table>
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -1162,7 +1204,8 @@ document$.subscribe(() => { lightbox.reload() });
             <th>Byte 6</th>
             <th>Byte 7</th>
             <th>Byte 8</th>
-            <th>Byte 9-62</th>
+            <th>Byte 9</th>
+            <th>Byte 10-62</th>
             <th>Byte 63</th>
             <th>Byte 64</th>
         </tr>
@@ -1175,7 +1218,8 @@ document$.subscribe(() => { lightbox.reload() });
             <td>message_type</td>
             <td>fan_id</td>
             <td>status</td>
-            <td>fan_speed</td>
+            <td>fan_speed_data</td>
+            <td>fan_speed_set</td>
             <td>Unused</td>
             <td>suffix_1</td>
             <td>suffix_2</td>
@@ -1193,15 +1237,17 @@ document$.subscribe(() => { lightbox.reload() });
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
+            <td>uint8_t</td>
         </tr>
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>1</td>
-            <td>4</td>
-            <td>0x02</td>
             <td>1</td>
+            <td>0x20</td>
+            <td>0</td>
+            <td>0</td>
             <td>0</td>
             <td>0</td>
             <td>0x00</td>
@@ -1211,13 +1257,14 @@ document$.subscribe(() => { lightbox.reload() });
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
-            <td>2</td>
-            <td>4</td>
-            <td>0x02</td>
-            <td>255</td>
+            <td>0x5a</td>
+            <td>3</td>
+            <td>3 & 88</td>
+            <td>0x20</td>
             <td>1</td>
-            <td>254</td>
+            <td>1</td>
+            <td>3</td>
+            <td>3</td>
             <td>0x00</td>
             <td>0x59</td>
             <td>0x42</td>
@@ -1225,20 +1272,20 @@ document$.subscribe(() => { lightbox.reload() });
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>0x01</td>
-            <td>0x04</td>
-            <td>0x02</td>
+            <td>0x03</td>
+            <td>0x20</td>
+            <td>0x01</td>
+            <td>0x01</td>
             <td>0x02</td>
             <td>0x01</td>
-            <td>25</td>
             <td>0x00</td>
             <td>0x59</td>
             <td>0x42</td>
         </tr>
     </table>
 </details>
-
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
