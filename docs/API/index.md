@@ -6,6 +6,20 @@ tags:
 # Summary
 This API documentation provides details about the message structure, status codes, and message types used in the system. It includes tables for Message ID, Status, Message Types, Temperature Sensor (Message Type 1), and Fan Control (Message Type 2).
 
+## Message Type Matrix
+
+- S = Sending Message
+- R = Receiving Message
+
+| Message Type               | Message ID | Cade<br>Role: MQTT<br>ID: 0x01     | Dan<br>Role: Motor<br>ID: 0x03                | Jahmel<br>Role: HMI<br>ID: 0x02                 |
+|----------------------------|------------|------------------------------------|-----------------------------------------------|-------------------------------------------------|
+| sensor value               | 0x10       | S<br>(Temperature Value in °C)     | R<br>(motor turns on to cool system)          | R<br>(Debug LEDs on/off within value ranges)    |
+| Set Motor Speed            | 0x20       | S<br>(Publish 1, 2, or 3)          | R<br>(Set 1 = Low, 2 = Medium, 3 = High)      | S<br>(toggle debug button press 1, 2, 3)        |
+| Motor Speed Status/Speed   | 0x20       | R<br>(Upload 1, 2, 3)              | S<br>(Broadcast status/speed)                 | R<br>(Debug LED blinks to recognize message)    |
+
+
+
+
 ## Message ID
 
 The Message ID table defines the unique identifiers for system members and their associated addresses. Each member is assigned a specific ID and address for communication within the system.
@@ -14,8 +28,7 @@ The Message ID table defines the unique identifiers for system members and their
 |---------------|-------------------|-----|---------|
 | Cade Clonts   | Wifi              | 1   | 0x01    |
 | Jahmel        | Human Interface   | 2   | 0x02    |
-| Tyler         | Temp Sensor       | 3   | 0x03    |
-| Dan           | Fan Control       | 4   | 0x04    |
+| Dan           | Fan Control       | 3   | 0x03    |
 | Broadcast     | All               | 88  | 0x58    |
 
 ### Status
@@ -31,13 +44,12 @@ The Status table defines the status codes used in the system to indicate the sta
 
 The Message Types table categorizes the types of messages and their associated status or code ranges.
 
-| Category         | Status/Code |
-|------------------|-------------|
-| Temp Data        | -40 to 155  |
-| Fan Control      | 0-125       |
-| System Status    | Normal (0x00), Error (0x01) |
-| System Initialize| Pending (0x00), Complete (0x01) |
-| Error            | Error Code  |
+| Category         | Status/Code | Address |
+|------------------|-------------|----|
+| Temp Data        | 0 to 255  | 0x10 |
+| Fan Control      | 0 to 3    | 0x20 |
+
+---
 
 ### Temperature Sensor (Message Type 1)
 
@@ -45,18 +57,19 @@ The Temperature Sensor table defines the structure of messages for temperature d
 
 | Byte | Variable Name | Variable Type | Min Value | Max Value | Example Value |
 |---|------------------|--------------|-----------|-----------|--------------|
-| 1 | prefix_1        | uint8_t      | 0x41      | 0x41      | 0x41         |
-| 2 | prefix_2        | uint8_t      | 0x5a      | 0x5a      | 0x5a         |
-| 3 | source_id       | uint8_t      | 3         | 3         | 0x03         |
-| 4 | destination_id  | uint8_t      | 1         | 88        | 0x58         |
-| 5 | message_type    | uint8_t      | 0x10      | 0x10      | 0x10         |
-| 6 | temp_id         | uint8_t      | 1         | 255       | 0x01         |
-| 7 | status          | uint8_t      | 0         | 1         | 0x01         |
-| 8 | temp_data_integer | uint8_t    | -40       | 155       | 25           |
-| 9 | temp_data_fraction | uint8_t   | 0         | 99        | 50           |
-| 10-62 | Unused       | uint8_t     | 0x00       | 0x00     | 0x00         |
+| 1 | prefix_1         | uint8_t      | 0x41      | 0x41      | 0x41         |
+| 2 | prefix_2         | uint8_t      | 0x5a      | 0x5a      | 0x5a         |
+| 3 | source_id        | uint8_t      | 1         | 3         | 0x03         |
+| 4 | destination_id   | uint8_t      | 1         | 3 & 88    | 0x02         |
+| 5 | message_type     | uint8_t      | 0x10      | 0x20      | 0x10         |
+| 6 | temp_id          | uint8_t      | 0         | 1         | 0x01         |
+| 7 | status           | uint8_t      | 0         | 1         | 0x01         |
+| 8 | temp_data_integer | uint8_t     | 0         | 255       | 25           |
+| 9 | temp_data_fraction | uint8_t    | 0         | 99        | 50           |
+| 10-62 | Unused       | uint8_t      | 0x00      | 0x00      | 0x00         |
 | 63 | suffix_1        | uint8_t      | 0x59      | 0x59      | 0x59         |
 | 64 | suffix_2        | uint8_t      | 0x42      | 0x42      | 0x42         |
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,8 +80,8 @@ The Temperature Sensor table defines the structure of messages for temperature d
 <body>
 
 <details>
-    <summary>Inverted Summary</summary>
-    <table border="1">
+    <summary>Inverted</summary>
+    <table>
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -108,7 +121,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
-            <td>int8_t</td>
+            <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
@@ -117,13 +130,13 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
-            <td>3</td>
+            <td>0x5a</td>
+            <td>1</td>
             <td>1</td>
             <td>0x10</td>
-            <td>1</td>
             <td>0</td>
-            <td>-40</td>
+            <td>0</td>
+            <td>0</td>
             <td>0</td>
             <td>0x00</td>
             <td>0x59</td>
@@ -132,13 +145,13 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>3</td>
-            <td>88</td>
+            <td>3 % 88</td>
             <td>0x10</td>
-            <td>255</td>
             <td>1</td>
-            <td>155</td>
+            <td>1</td>
+            <td>255</td>
             <td>99</td>
             <td>0x00</td>
             <td>0x59</td>
@@ -147,7 +160,7 @@ The Temperature Sensor table defines the structure of messages for temperature d
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>0x03</td>
             <td>0x58</td>
             <td>0x10</td>
@@ -160,27 +173,30 @@ The Temperature Sensor table defines the structure of messages for temperature d
             <td>0x42</td>
         </tr>
     </table>
+
 </details>
 
 </body>
 </html>
 
+---
 
 ### Fan Control (Message Type 2)
 
 The Fan Control table defines the structure of messages for controlling fan speed. Each byte in the message is mapped to a specific variable, with details about its type, range, and example values.
 
-| Byte  | Variable Name      | Variable Type | Min Value | Max Value | Example Value |
-|-------|-------------------|--------------|-----------|-----------|--------------|
-| 1     | prefix_1         | uint8_t      | 0x41      | 0x41      | 0x41         |
-| 2     | prefix_2         | uint8_t      | 0x5a      | 0x5a      | 0x5a         |
-| 3     | source_id        | uint8_t      | 1         | 2         | 0x01         |
-| 4     | destination_id   | uint8_t      | 4         | 4         | 0x04         |
-| 5     | message_type     | uint8_t      | 0x02      | 0x02     | 0x02         |
-| 6     | fan_id          | uint8_t      | 1         |255      | 0x02         |
+| Byte  | Variable Name   | Variable Type | Min Value | Max Value | Example Value |
+|-------|-----------------|--------------|-----------|-----------|--------------|
+| 1     | prefix_1        | uint8_t      | 0x41      | 0x41      | 0x41         |
+| 2     | prefix_2        | uint8_t      | 0x5a      | 0x5a      | 0x5a         |
+| 3     | source_id       | uint8_t      | 1         | 3         | 0x01         |
+| 4     | destination_id  | uint8_t      | 1         | 3 & 58    | 0x04         |
+| 5     | message_type    | uint8_t      | 0x20      | 0x20      | 0x20         |
+| 6     | fan_id          | uint8_t      | 0         | 1         | 0x02         |
 | 7     | status          | uint8_t      | 0         | 1         | 0x01         |
-| 8     | Fan Speed       | uint8_t      | 0         | 254       | 25           |
-| 9-62  | Unused          | uint8_t      | 0x00      | 0x00      | 0x00         |
+| 8     | fan_speed_data  | uint8_t      | 0         | 3         | 0x02         |
+| 9     | fan_speed_set   | uint8_t      | 0         | 3         | 0x01         |
+| 10-62 | Unused          | uint8_t      | 0x00      | 0x00      | 0x00         |
 | 63    | suffix_1        | uint8_t      | 0x59      | 0x59      | 0x59         |
 | 64    | suffix_2        | uint8_t      | 0x42      | 0x42      | 0x42         |
 
@@ -193,8 +209,8 @@ The Fan Control table defines the structure of messages for controlling fan spee
 <body>
 
 <details>
-    <summary>Inverted Summary</summary>
-    <table border="1">
+    <summary>Inverted</summary>
+    <table>
         <tr>
             <th></th>
             <th>Byte 1</th>
@@ -205,7 +221,8 @@ The Fan Control table defines the structure of messages for controlling fan spee
             <th>Byte 6</th>
             <th>Byte 7</th>
             <th>Byte 8</th>
-            <th>Byte 9-62</th>
+            <th>Byte 9</th>
+            <th>Byte 10-62</th>
             <th>Byte 63</th>
             <th>Byte 64</th>
         </tr>
@@ -218,7 +235,8 @@ The Fan Control table defines the structure of messages for controlling fan spee
             <td>message_type</td>
             <td>fan_id</td>
             <td>status</td>
-            <td>fan_speed</td>
+            <td>fan_speed_data</td>
+            <td>fan_speed_set</td>
             <td>Unused</td>
             <td>suffix_1</td>
             <td>suffix_2</td>
@@ -236,15 +254,17 @@ The Fan Control table defines the structure of messages for controlling fan spee
             <td>uint8_t</td>
             <td>uint8_t</td>
             <td>uint8_t</td>
+            <td>uint8_t</td>
         </tr>
         <tr>
             <td><strong>Min Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>1</td>
-            <td>4</td>
-            <td>0x02</td>
             <td>1</td>
+            <td>0x20</td>
+            <td>0</td>
+            <td>0</td>
             <td>0</td>
             <td>0</td>
             <td>0x00</td>
@@ -254,13 +274,14 @@ The Fan Control table defines the structure of messages for controlling fan spee
         <tr>
             <td><strong>Max Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
-            <td>2</td>
-            <td>4</td>
-            <td>0x02</td>
-            <td>255</td>
+            <td>0x5a</td>
+            <td>3</td>
+            <td>3 & 88</td>
+            <td>0x20</td>
             <td>1</td>
-            <td>254</td>
+            <td>1</td>
+            <td>3</td>
+            <td>3</td>
             <td>0x00</td>
             <td>0x59</td>
             <td>0x42</td>
@@ -268,19 +289,19 @@ The Fan Control table defines the structure of messages for controlling fan spee
         <tr>
             <td><strong>Example Value</strong></td>
             <td>0x41</td>
-            <td>0x5A</td>
+            <td>0x5a</td>
             <td>0x01</td>
-            <td>0x04</td>
-            <td>0x02</td>
+            <td>0x03</td>
+            <td>0x20</td>
+            <td>0x01</td>
+            <td>0x01</td>
             <td>0x02</td>
             <td>0x01</td>
-            <td>25</td>
             <td>0x00</td>
             <td>0x59</td>
             <td>0x42</td>
         </tr>
     </table>
 </details>
-
 </body>
 </html>
