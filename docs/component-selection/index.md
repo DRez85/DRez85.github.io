@@ -44,4 +44,4 @@ The LM2575WU was chosen as our voltage regulator due to its efficiency, reliabil
 | Solution | Pros | Cons |
 |----------|----------|----------|
 | ![NCV7708FDWR2G](https://github.com/user-attachments/assets/e3d613c3-ad3f-4f2f-a713-1b056073b67e) Solution 1<br> NCV7708FDWR2G<br>  Cost: $ 4.36 per Unit<br> 
-[Link to product](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237) <br> | - Readily available<br> - Fully integrated control and power. | - Expensive <br> - 28 Pins may be difficult to solder. 
+[Link to product](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237) <br> | - Readily available<br> - Fully integrated control and power.<br> | -Expensive <br> - 28 Pins may be difficult to solder. 
